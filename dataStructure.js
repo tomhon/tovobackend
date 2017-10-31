@@ -28,6 +28,7 @@ module.exports = function userData() {
     this.freeKickCount = 0;
     this.penaltyKickCount = 0;
     this.penaltyScoredCount = 0;
+    this.penaltyMissedCount = 0;
     this.fouledCount = 0;
     this.committedFoulCount = 0;
     this.kickOffCount = 0;

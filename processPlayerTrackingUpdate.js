@@ -48,12 +48,12 @@ module.exports = function processPlayerTrackingUpdate(session, status) {
             return(session.userData.cornerCount.toString());
             break;
             }
-        case 'penaltyScored': {session.userData.penaltyScoredCount ++; session.userData.penaltyKickCount ++; session.userData.goalCount ++; session.userData.shotOnFrame ++;
-            return(session.userData.penaltyScored.toString());
+        case 'penaltyScored': {session.userData.penaltyScoredCount ++; session.userData.penaltyKickCount ++; session.userData.goalCount ++; session.userData.shotOnFrameCount ++;
+            return(session.userData.penaltyScoredCount.toString());
             break;
             }
-        case 'penaltyMissed': {session.userData.penaltyKickCount ++;
-            return(session.userData.penaltyKickCount.toString());
+        case 'penaltyMissed': {session.userData.penaltyKickCount ++; session.userData.penaltyMissedCount ++;
+            return(session.userData.penaltyMissedCount.toString());
             break;
             }        
         case 'fouled': {session.userData.fouledCount ++;
@@ -68,8 +68,8 @@ module.exports = function processPlayerTrackingUpdate(session, status) {
             return(session.userData.substitutedInCount.toString());
             break;
             }
-        case 'substitutedOut': {session.userData.substitutedOutCount ++;
-            return(session.userData.substitutedOutCount.toString());
+        case 'substitutedOut': {session.userData.susbstitutedOutCount ++;
+            return(session.userData.susbstitutedOutCount.toString());
             break;
             }        
         case 'kickOff': {session.userData.kickOffCount ++;
