@@ -1,5 +1,8 @@
 module.exports = function userData() {
     var date = new Date();
+    this.id = date.toISOString();
+    this.status = 'Backend Started';
+    this.user = 'Admin';
     this.gameId = date,
     console.log('New Game Id set >>>>' + this.gameId);
     this.matchState = 'Pre-Game';

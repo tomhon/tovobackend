@@ -1,6 +1,7 @@
 var restify = require('restify');
 var userData = require('./dataStructure');
 var processPlayerTrackingUpdate = require('./processPlayerTrackingUpdate');
+var logResponse = require('./logResponse');
 
 var server = restify.createServer();
 server.use(restify.plugins.queryParser());
@@ -15,12 +16,13 @@ function session() {
 
 session = new session();
 console.log('New session object created');
-
+initialLogEntry = session.userData;
 
 server.get('/', function (req, res){
     console.log("Inbound Request:" , req.query);
     res.header('Access-Control-Allow-Origin', "*");
-    var statusUpdateResponse = processPlayerTrackingUpdate(session, req.query.status)
+    var statusUpdateResponse = processPlayerTrackingUpdate(session, req.query.status);
+    logResponse (session, session.userData.playerNumber, req.query.status);
     console.log('Outbound Response:', req.query.status + ":" + statusUpdateResponse);
     res.send(req.query.status + ":" + statusUpdateResponse);
 
