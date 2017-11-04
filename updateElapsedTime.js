@@ -1,6 +1,6 @@
 module.exports = function updateElapsedTime(session, event) {
     var date = new Date();
-    console.log('updateElapsedTime called' + event + date.toISOString());
+
     switch (event) {
         case 'Kick Off 1st Half': {
             session.userData.playerInOut = 'In Assumed';
@@ -15,7 +15,7 @@ module.exports = function updateElapsedTime(session, event) {
             };
             break;
         case 'Kick Off 1st Half Extra Time': {
-            session.userData.playerInOut = 'In Assumed';
+            //assume playerInOut doesn't change at half time
             session.userData.mostRecentPlayerStartTime = date.getTime();
             session.userData.mostRecentGameStartTime = date.getTime();
             };
@@ -52,6 +52,12 @@ module.exports = function updateElapsedTime(session, event) {
         default: {console.log('Default Case')}
 
     }
-
+    console.log('updateElapsedTime called ' + event + date.toISOString());
+    console.log("PlayerINOUT:" + session.userData.playerInOut);
+    console.log("matchState:" + session.userData.matchState);
+    console.log("mostRecentPlayerStartTime:" + session.userData.mostRecentPlayerStartTime);
+    console.log("mostRecentGameStartTime:" + session.userData.mostRecentGameStartTime);
+    console.log("totalPlayerElapsedTime:" + session.userData.totalPlayerElapsedTime);
+    console.log("totalGameElapsedTime:" + session.userData.totalGameElapsedTime);
 
 }

@@ -1,10 +1,14 @@
 module.exports = function userData() {
     var date = new Date();
     this.id = date.toISOString();
-    this.status = 'Backend Started';
-    this.user = 'Admin';
+    this.status = 'App Initialized';
+    // this.user = 'Admin';
     this.gameId = date,
     console.log('New Game Id set >>>>' + this.gameId);
+    this.playerName = null;
+    this.playerNumber = null;
+    this.playerTeam = null;
+    this.playerClub = null;
     this.matchState = 'Pre-Game';
     this.playerTeamHomeAway = 'Home'; 
     this.opponentTeam = 'Unknown';
@@ -39,3 +43,4 @@ module.exports = function userData() {
     this.assistCount = 0;
     console.log('New userData object created');
 };
+
